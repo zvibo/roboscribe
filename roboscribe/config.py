@@ -14,7 +14,7 @@ class TranscriptionConfig:
 class CleanupConfig:
     """Configuration settings for transcript cleanup model."""
     model_name: str = "meta-llama/Llama-3.1-8B-Instruct"
-    torch_dtype: str = "bfloat32"
+    torch_dtype: str = "float32"
     device_map: str = "auto"
     use_fast_tokenizer: bool = True
     trust_remote_code: bool = False
