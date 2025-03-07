@@ -7,14 +7,14 @@ class TranscriptionConfig:
     """Configuration settings for audio transcription model."""
     device: str
     batch_size: int = 16
-    compute_type: str = "float16"
+    compute_type: str = "float32"
     model_name: str = "large-v2"
 
 @dataclass
 class CleanupConfig:
     """Configuration settings for transcript cleanup model."""
     model_name: str = "meta-llama/Llama-3.1-8B-Instruct"
-    torch_dtype: str = "bfloat16"
+    torch_dtype: str = "bfloat32"
     device_map: str = "auto"
     use_fast_tokenizer: bool = True
     trust_remote_code: bool = False
