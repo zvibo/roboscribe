@@ -49,8 +49,10 @@ class TranscriptProcessor:
             self.config.device,
             compute_type=self.config.compute_type
         )
-        result = model.transcribe(audio, batch_size=self.config.batch_size)
+        kwparams = dict(batch_size=self.config.batch_size, language='en')
+        result = model.transcribe(audio, **kwparams)
         self._cleanup_gpu_memory(model)
+        result['language'] = 'en'
         return result
 
     def _align_transcription(self, audio, result: Dict) -> Dict:
